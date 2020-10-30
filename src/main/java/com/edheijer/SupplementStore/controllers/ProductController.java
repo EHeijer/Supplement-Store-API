@@ -1,4 +1,4 @@
-package com.edheijer.SupplemantStore.controllers;
+package com.edheijer.SupplementStore.controllers;
 
 import java.util.List;
 
@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.edheijer.SupplemantStore.models.Product;
-import com.edheijer.SupplemantStore.services.ProductService;
+import com.edheijer.SupplementStore.models.Product;
+import com.edheijer.SupplementStore.services.ProductService;
+
+import lombok.Setter;
 
 @RestController
 @RequestMapping
@@ -33,6 +35,8 @@ public class ProductController {
 	public Product getProductById(@PathVariable("id") int id) {
 		return productService.getProduct(Integer.toUnsignedLong(id));
 	}
+	
+	
 	
 	@PostMapping(path = "/products")
 	public void addProduct(@RequestBody Product product) {

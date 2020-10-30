@@ -1,4 +1,4 @@
-package com.edheijer.SupplemantStore.models;
+package com.edheijer.SupplementStore.models;
 
 import javax.persistence.Embeddable;
 import javax.persistence.Entity;
@@ -28,12 +28,13 @@ public class OrderLine {
 	
 	private int quantity;
 	
-	@JsonBackReference
-	@ManyToOne(optional = false, fetch = FetchType.LAZY)
-	@JoinColumn(name = "order_id")
-	private Order order;
+//	@JsonBackReference(value="order")
+//	@ManyToOne(optional = false, fetch = FetchType.LAZY)
+//	@JoinColumn(name = "order_id")
+//	private Order order;
 	
-	@ManyToOne(optional = false, fetch = FetchType.LAZY)
+//	@JsonBackReference
+	@ManyToOne(optional = false)
 	@JoinColumn(name = "product_id")
 	private Product product;
 

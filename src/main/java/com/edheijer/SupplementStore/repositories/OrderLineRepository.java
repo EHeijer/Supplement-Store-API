@@ -1,8 +1,8 @@
-package com.edheijer.SupplemantStore.repositories;
+package com.edheijer.SupplementStore.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.edheijer.SupplemantStore.models.OrderLine;
+import com.edheijer.SupplementStore.models.OrderLine;
 
 public interface OrderLineRepository extends JpaRepository<OrderLine, Long>{
 

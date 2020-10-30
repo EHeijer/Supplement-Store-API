@@ -1,8 +1,8 @@
-package com.edheijer.SupplemantStore.repositories;
+package com.edheijer.SupplementStore.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.edheijer.SupplemantStore.models.Order;
+import com.edheijer.SupplementStore.models.Order;
 
 public interface OrderRepository extends JpaRepository<Order, Long>{
 

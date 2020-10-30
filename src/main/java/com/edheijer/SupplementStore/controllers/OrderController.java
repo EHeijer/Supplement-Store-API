@@ -1,4 +1,4 @@
-package com.edheijer.SupplemantStore.controllers;
+package com.edheijer.SupplementStore.controllers;
 
 import java.util.List;
 
@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.edheijer.SupplemantStore.models.Order;
-import com.edheijer.SupplemantStore.services.CustomerService;
-import com.edheijer.SupplemantStore.services.OrderService;
+import com.edheijer.SupplementStore.models.Order;
+import com.edheijer.SupplementStore.services.OrderService;
+import com.edheijer.SupplementStore.services.UserService;
 
 @RestController
 @RequestMapping
@@ -26,7 +26,7 @@ public class OrderController {
 	private OrderService orderService;
 	
 	@Autowired
-	private CustomerService customerService;
+	private UserService userService;
 
 	@GetMapping(path = "/orders") 
 	public List<Order> getAllOrderLines(){
@@ -38,9 +38,9 @@ public class OrderController {
 		return orderService.getOrder(Integer.toUnsignedLong(id));
 	}
 	
-	@GetMapping(path = "customers/{id}/orders")
+	@GetMapping(path = "users/{id}/orders")
 	public List<Order> getOneCustomersOrders(@PathVariable("id") int id){
-		return customerService.getCustomer(Integer.toUnsignedLong(id)).getCustomerOrders();
+		return userService.getUser(Integer.toUnsignedLong(id)).getUserOrders();
 	}
 	
 	

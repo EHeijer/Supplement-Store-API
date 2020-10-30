@@ -1,8 +1,8 @@
-package com.edheijer.SupplemantStore.models;
-
-import java.util.List;
+package com.edheijer.SupplementStore.models;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -14,16 +14,17 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data
 @NoArgsConstructor
-@Table(name = "products")
-public class Product {
-
+@Table(name = "roles")
+public class Role {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private long id;
 	
-	private String brand;
-	private String product_name;
-	private double price;
-	private String imageUrl;
+	@Enumerated(EnumType.STRING)
+	private EnumRole name;
 	
+	public Role(EnumRole name) {
+		this.name = name;
+	}
 }

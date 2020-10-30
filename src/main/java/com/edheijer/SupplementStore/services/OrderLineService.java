@@ -1,12 +1,12 @@
-package com.edheijer.SupplemantStore.services;
+package com.edheijer.SupplementStore.services;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.edheijer.SupplemantStore.models.OrderLine;
-import com.edheijer.SupplemantStore.repositories.OrderLineRepository;
+import com.edheijer.SupplementStore.models.OrderLine;
+import com.edheijer.SupplementStore.repositories.OrderLineRepository;
 
 @Service
 public class OrderLineService {
@@ -22,12 +22,12 @@ public class OrderLineService {
 		return orderLineRepository.getOne(id);
 	}
 	
-	public OrderLine addOrderLine(OrderLine OrderLine) {
-		return orderLineRepository.saveAndFlush(OrderLine);
+	public OrderLine addOrderLine(OrderLine orderLine) {
+		return orderLineRepository.saveAndFlush(orderLine);
 	}
 	
-	public void updateOrderLine(Long id, OrderLine OrderLine) {
-		orderLineRepository.saveAndFlush(OrderLine);
+	public void updateOrderLine(OrderLine orderLine) {
+		orderLineRepository.saveAndFlush(orderLine);
 	}
 	
 	public void deleteOrderLine(Long id) {

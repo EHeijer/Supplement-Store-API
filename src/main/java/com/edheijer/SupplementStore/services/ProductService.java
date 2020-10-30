@@ -1,12 +1,13 @@
-package com.edheijer.SupplemantStore.services;
+package com.edheijer.SupplementStore.services;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.edheijer.SupplemantStore.models.Product;
-import com.edheijer.SupplemantStore.repositories.ProductRepository;
+import com.edheijer.SupplementStore.models.OrderLine;
+import com.edheijer.SupplementStore.models.Product;
+import com.edheijer.SupplementStore.repositories.ProductRepository;
 
 
 @Service
@@ -34,4 +35,5 @@ public class ProductService {
 	public void deleteProduct(Long id) {
 		productRepository.deleteById(id);
 	}
+	
 }

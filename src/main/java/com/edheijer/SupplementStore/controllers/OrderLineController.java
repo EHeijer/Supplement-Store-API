@@ -1,4 +1,4 @@
-package com.edheijer.SupplemantStore.controllers;
+package com.edheijer.SupplementStore.controllers;
 
 import java.util.List;
 
@@ -13,14 +13,17 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.edheijer.SupplemantStore.models.OrderLine;
-import com.edheijer.SupplemantStore.services.OrderLineService;
+import com.edheijer.SupplementStore.models.OrderLine;
+import com.edheijer.SupplementStore.models.Product;
+import com.edheijer.SupplementStore.services.OrderLineService;
 
 
 @RestController
 @RequestMapping
-@CrossOrigin
+@CrossOrigin()
 public class OrderLineController {
+	
+	Long idCounter = 1L;
 	
 	@Autowired
 	private OrderLineService orderLineService;
@@ -37,16 +40,21 @@ public class OrderLineController {
 	
 	@PostMapping(path = "/orderLines")
 	public void addOrderLine(@RequestBody OrderLine orderLine) {
+		orderLine.setId(idCounter);
+		
 		orderLineService.addOrderLine(orderLine);
+		idCounter++;
 	}
 	
-	@PutMapping(path = "/orderLines/{id}")
-	public void updateOrderLine(@PathVariable("id") int id, @RequestBody OrderLine orderLine) {
-		orderLineService.updateOrderLine(Integer.toUnsignedLong(id), orderLine);
+	
+	@PutMapping(path = "/orderLines")
+	public void updateOrderLine(@RequestBody OrderLine orderLine) {
+		orderLineService.updateOrderLine(orderLine);
 	}
 	
 	@DeleteMapping(path = "/orderLines/{id}")
 	public void removeProductById(@PathVariable("id") int id) {
+		
 		orderLineService.deleteOrderLine(Integer.toUnsignedLong(id));
 	}
 

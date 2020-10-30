@@ -1,12 +1,12 @@
-package com.edheijer.SupplemantStore.services;
+package com.edheijer.SupplementStore.services;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.edheijer.SupplemantStore.models.Order;
-import com.edheijer.SupplemantStore.repositories.OrderRepository;
+import com.edheijer.SupplementStore.models.Order;
+import com.edheijer.SupplementStore.repositories.OrderRepository;
 
 @Service
 public class OrderService {

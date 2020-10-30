@@ -1,4 +1,4 @@
-package com.edheijer.SupplemantStore.models;
+package com.edheijer.SupplementStore.models;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -36,22 +36,22 @@ public class Order {
 	
 	@JsonBackReference
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "customer_id")
-	private Customer customer;
+	@JoinColumn(name = "user_id")
+	private User user;
 	
-	@OneToMany(mappedBy = "order")
-	@JsonManagedReference
+//	@JsonManagedReference(value = "order")
+	@OneToMany()
 	private List<OrderLine> orderLines = new ArrayList<>();
 	
-	public void addOrderLineToOrder(OrderLine orderLine) {
-		this.orderLines.add(orderLine);
-		orderLine.setOrder(this);
-	}
-	
-	public void removeOrderLineFromOrder(OrderLine orderLine) {
-		this.orderLines.remove(orderLine);
-		orderLine.setOrder(null);
-	}
+//	public void addOrderLineToOrder(OrderLine orderLine) {
+//		this.orderLines.add(orderLine);
+//		orderLine.setOrder(this);
+//	}
+//	
+//	public void removeOrderLineFromOrder(OrderLine orderLine) {
+//		this.orderLines.remove(orderLine);
+//		orderLine.setOrder(null);
+//	}
 	
 	@Transient
 	public Double getTotalOrderPrice() {
