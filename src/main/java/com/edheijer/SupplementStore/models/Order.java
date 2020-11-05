@@ -34,7 +34,7 @@ public class Order {
 	
 	private LocalDate dateCreated = LocalDate.now();
 	
-	@JsonBackReference
+	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_id")
 	private User user;
