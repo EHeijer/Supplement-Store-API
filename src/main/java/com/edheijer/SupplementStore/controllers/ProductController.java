@@ -3,6 +3,7 @@ package com.edheijer.SupplementStore.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,11 +22,13 @@ import lombok.Setter;
 @RestController
 @RequestMapping
 @CrossOrigin(origins = "*", allowedHeaders = "*")
+@PreAuthorize("permitAll()")
 public class ProductController {
 	
 	@Autowired
 	private ProductService productService;
 
+	
 	@GetMapping(path = "/products")
 	public List<Product> getAllProducts(){
 		return productService.getAllProducts();

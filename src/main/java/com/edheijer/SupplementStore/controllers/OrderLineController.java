@@ -40,10 +40,7 @@ public class OrderLineController {
 	
 	@PostMapping(path = "/orderLines")
 	public void addOrderLine(@RequestBody OrderLine orderLine) {
-		orderLine.setId(idCounter);
-		
 		orderLineService.addOrderLine(orderLine);
-		idCounter++;
 	}
 	
 	
