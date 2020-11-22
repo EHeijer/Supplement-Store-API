@@ -97,7 +97,7 @@ public class AuthController {
 			roles.add(userRole);
 		} else {
 			strRoles.forEach(role -> {
-				if(role == "admin") {
+				if(role.equalsIgnoreCase("admin")) {
 					Role adminRole = roleRepository.findByName(EnumRole.ROLE_ADMIN)
 							.orElseThrow(() -> new RuntimeException("Error: Role is not found."));
 					roles.add(adminRole);
