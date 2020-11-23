@@ -54,6 +54,12 @@ public class OrderController {
 		orderService.updateOrder(Integer.toUnsignedLong(id), order);
 	}
 	
+	@PutMapping(path = "/orders/changestatus/{id}")
+	public void changeOrderStatus(@PathVariable("id") int id, @RequestBody Order order) {
+		order.setOrderSent(true);
+		orderService.updateOrder(Integer.toUnsignedLong(id), order);
+	}
+	
 	@DeleteMapping(path = "/orders/{id}")
 	public void removeProductById(@PathVariable("id") int id) {
 		orderService.deleteOrder(Integer.toUnsignedLong(id));

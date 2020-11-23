@@ -34,7 +34,7 @@ public class Order {
 	private Long id;
 	
 	private LocalDate dateCreated = LocalDate.now();
-	
+	private boolean isOrderSent = false;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_id")
