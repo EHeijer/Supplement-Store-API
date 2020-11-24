@@ -31,6 +31,7 @@ public class Product {
 	private String product_name;
 	private double price;
 	private String imageUrl;
+	private boolean removed = false;
 	
 	@Enumerated(EnumType.STRING)
 	private ProductCategory productCategory;
